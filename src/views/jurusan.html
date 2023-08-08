@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{#success}}
+    <h3>{{success}}</h3>
+    {{/success}}
+    {{#failed}}
+    <h3>{{failed}}</h3>
+    {{/failed}}
+    <h1>Jurusan</h1>
+    {{#data}}
+    <li>{{jurusan}} - <a href="/jurusan/{{id}}">hapus jurusan</a></li>
+    {{/data}}
+    <a href="/jurusan/add">Tambah jurusan</a>
+    <a href="/mahasiswa">kembali</a>
+</body>
+</html>

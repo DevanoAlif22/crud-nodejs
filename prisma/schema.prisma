@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// 1 user bisa punya banyak kontak
+// dan 1 kontak bisa punya banyak address
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Jurusan {
+  id Int @id @default(autoincrement())
+  jurusan String @db.VarChar(100)
+  mahasiswa Mahasiswa[]
+  @@map("jurusan")
+}
+
+model Mahasiswa {
+  id Int @id @default(autoincrement())
+  nama String @db.VarChar(100)
+  npm String @db.VarChar(100)
+  jurusan_id Int
+  jurusan Jurusan @relation(fields: [jurusan_id], references: [id])
+  @@map("mahasiswa")
+}
+
+model Pengguna {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  @@map("pengguna")
+}
+
+model Prestasi {
+  id Int @id @default(autoincrement())
+  deskripsi String @db.MediumText
+  gambar String @db.VarChar(100)
+  @@map("prestasi")
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{#message}}
+    <h3>{{message}}</h3>
+    {{/message}}
+    {{#data}}
+        <li>{{nama}} - {{npm}} - {{jurusan.jurusan}} - <a href="/mahasiswa/{{id}}">Hapus</a> <a href="/mahasiswa/update/{{id}}">Edit</a></li>
+    {{/data}}
+    {{#prevPage}}
+    <a href="/mahasiswa?page={{prevPage}}">Prev</a>
+    {{/prevPage}}
+
+    {{#nextPage}}
+    <a href="/mahasiswa?page={{nextPage}}">Next</a>
+    {{/nextPage}}
+    <a href="/mahasiswa/add">tambah mahasiswa</a>
+    <a href="/jurusan">Jurusan</a>
+    <a href="/logout" style="color: red;">LOGOUT</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Gambar Prestasi Kampus</title>
+</head>
+<body>
+  {{#data}}
+    <h3 style="color: blue;">{{message}}</h3>
+  {{/data}}
+
+  <h1>Upload Gambar Prestasi Kampus</h1>
+  
+  <!-- Form untuk mengunggah gambar -->
+  <form action="/prestasi" method="post" enctype="multipart/form-data">
+    <input type="text" name="deskripsi" placeholder="Deskripsi">
+    <input type="file" name="gambar">
+    <button type="submit">Upload</button>
+  </form>
+
+  <!-- Tampilkan daftar prestasi -->
+  <ul>
+    {{#data}}
+    <li>
+      <h3>{{deskripsi}}</h3>
+      <img src="upload/{{gambar}}" width="300px">
+      <p>{{gambar}}</p>
+      <a href="/prestasi/{{id}}">Hapus</a>
+    </li>
+    {{/data}}
+  </ul>
+</body>
+</html>
